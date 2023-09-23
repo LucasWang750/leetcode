@@ -12,8 +12,13 @@ class Solution:
                     rotten.append((row,col))
                 elif grid[row][col] == 1:
                     number += 1
+        
+        #special cases
         if number == 0:
             return 0
+        if len(rotten) == 0:
+            return -1
+        
         not_in = lambda x , y, arr: (x,y) not in arr
         
         def checkCoords(left, right, x, y, x_add, y_add):
