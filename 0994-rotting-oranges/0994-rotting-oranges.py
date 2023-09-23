@@ -28,7 +28,7 @@ class Solution:
         #bfs on all rottens
         #add all rottens to a queue
         queue = collections.deque([rotten])
-        print('queue', queue)
+        # print('queue', queue)
         #already rotten oranges that have been checked
         visited = []
         #go through each rotten and append if any oranges adjacent
@@ -36,9 +36,9 @@ class Solution:
             #curr iteration - list of rottens
             curr_rotten = queue.popleft()
             become_rotten = set()
-            print('visited', visited)
-            print('current rotten', curr_rotten)
-            print('number', number)
+            # print('visited', visited)
+            # print('current rotten', curr_rotten)
+            # print('number', number)
             while curr_rotten:
                 #what will become rotten
                 #current rotten orange
@@ -52,7 +52,7 @@ class Solution:
                 number += checkCoords(n-1, y,x, y, 0, 1)
             if become_rotten:
                 queue.append(collections.deque(become_rotten))
-                print('become_rotten' , become_rotten)
+                # print('become_rotten' , become_rotten)
 
             minute += 1
         # print('minute',minute)
