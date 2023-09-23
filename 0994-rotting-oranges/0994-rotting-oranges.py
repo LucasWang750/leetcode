@@ -6,7 +6,6 @@ class Solution:
         n = len(grid[0])
         minute = 0
         
-        #find all rottens first
         for row in range(m):
             for col in range(n):
                 if grid[row][col] == 2:
@@ -20,9 +19,8 @@ class Solution:
         def checkCoords(left, right, x, y, x_add, y_add):
             if not_in(x + x_add, y + y_add, visited) and not_in(x + x_add, y + y_add, become_rotten):
                 if left > right and grid[x + x_add][y + y_add] == 1:
-                    # print((x,y), (x+x_add, y+y_add))
                     grid[x + x_add][y + y_add] = 2
-                    become_rotten.add((x+x_add, y+y_add))
+                    become_rotten.append((x+x_add, y+y_add))
                     return -1
             return 0
         #bfs on all rottens
@@ -35,7 +33,7 @@ class Solution:
         while queue and number > 0:
             #curr iteration - list of rottens
             curr_rotten = queue.popleft()
-            become_rotten = set()
+            become_rotten = collections.deque()
             # print('visited', visited)
             # print('current rotten', curr_rotten)
             # print('number', number)
@@ -44,19 +42,14 @@ class Solution:
                 #current rotten orange
                 orange = curr_rotten.popleft()
                 visited.append(orange)
-                print('orange', orange)
                 x, y = orange
                 number += checkCoords(x, 0,x, y, -1, 0)
                 number += checkCoords(m-1, x, x, y, 1, 0)
                 number += checkCoords(y, 0, x, y, 0, -1)
                 number += checkCoords(n-1, y,x, y, 0, 1)
             if become_rotten:
-                queue.append(collections.deque(become_rotten))
-                # print('become_rotten' , become_rotten)
-
+                queue.append(become_rotten)
             minute += 1
-        # print('minute',minute)
-        # print('number', number)
         return -1 if number > 0 else minute
                     
                     
