@@ -15,6 +15,7 @@ class Solution:
             node, level_idx = queue[0]
             while level_len > 0:
                 curr_node, col_idx = queue.popleft()
+                print(curr_node.val, col_idx)
                 level_len -= 1
                 
                 if curr_node.left:
