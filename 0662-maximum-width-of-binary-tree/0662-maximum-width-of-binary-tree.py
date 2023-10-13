@@ -8,7 +8,7 @@ from collections import deque
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         
-        queue = deque([(root,1)])
+        queue = deque([(root,0)])
         max_len = 0
         while queue:
             level_len = len(queue)
