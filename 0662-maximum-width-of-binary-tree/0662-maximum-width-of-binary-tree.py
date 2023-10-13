@@ -8,14 +8,14 @@ from collections import deque
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         
-        queue = deque([(root,0)])
+        queue = deque([(root,1)])
         max_len = 0
         while queue:
             level_len = len(queue)
             node, level_idx = queue[0]
             while level_len > 0:
                 curr_node, col_idx = queue.popleft()
-                print(curr_node.val, col_idx)
+                # print(curr_node.val, col_idx)
                 level_len -= 1
                 
                 if curr_node.left:
