@@ -19,12 +19,13 @@ class Solution:
                 result.next = temp2
                 temp2 = temp2.next
             result = result.next
-        while temp1:
-            result.next = temp1
-            temp1 = temp1.next
-            result = result.next
-        while temp2:
-            result.next = temp2
-            temp2 = temp2.next
-            result = result.next
+        result.next = temp1 if temp1 is not None else temp2
+        # while temp1:
+        #     result.next = temp1
+        #     temp1 = temp1.next
+        #     result = result.next
+        # while temp2:
+        #     result.next = temp2
+        #     temp2 = temp2.next
+        #     result = result.next
         return res.next
