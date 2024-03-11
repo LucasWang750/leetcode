@@ -1,7 +1,7 @@
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:
         length = len(s)
-        s = [*s]
+        s = list(s)
         left = 0
         left_index = left
         while True:
