@@ -8,12 +8,13 @@ class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         
         def isLeaf(root):
-            return root.left is None and root.right is None
+            return not root.left and not root.right 
         
         def dfs(root, num):
-            if root:
-                if root.val - num == 0 and isLeaf(root):
-                    return True
-                return dfs(root.left, num - root.val) or dfs(root.right, num - root.val)
-                
+            if not root:
+                return False
+            num -= root.val
+            if isLeaf(root):
+                return num == 0
+            return dfs(root.left, num) or dfs(root.right, num)
         return dfs(root, targetSum)
