@@ -6,13 +6,13 @@ class Solution:
             temp = arr[:]
             left = 1
             right = i - 1
-            while left <= right:
-                temp[left] = arr[left-1] + arr[left]
-                temp[right] = temp[left]
-                left += 1
-                right -= 1
-            # for j in range(1, i):
-            #     temp[j] = arr[j-1] + arr[j]
+            # while left <= right:
+            #     temp[left] = arr[left-1] + arr[left]
+            #     temp[right] = temp[left]
+            #     left += 1
+            #     right -= 1
+            for j in range(1, i):
+                temp[j] = arr[j-1] + arr[j]
             arr = temp[:]
         return arr
         
