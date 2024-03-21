@@ -4,8 +4,8 @@ class Solution:
         
         for i in range(rowIndex + 1):
             temp = arr[:]
-            left = 1
-            right = i - 1
+            # left = 1
+            # right = i - 1
             # while left <= right:
             #     temp[left] = arr[left-1] + arr[left]
             #     temp[right] = temp[left]
