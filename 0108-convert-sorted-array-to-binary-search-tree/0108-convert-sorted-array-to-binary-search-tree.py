@@ -11,7 +11,7 @@ class Solution:
             if left > right:
                 return None
             
-            mid = (left + right) // 2
+            mid = left + (right - left) // 2
             
             root = TreeNode(nums[mid])
             root.left = dfs(left, mid - 1)
