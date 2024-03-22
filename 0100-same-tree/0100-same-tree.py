@@ -10,9 +10,9 @@ class Solution:
         def dfs(root1, root2):
             
             if root1 and root2:
-                if root1.val != root2.val:
-                    return False
-                return dfs(root1.left, root2.left) and dfs(root1.right, root2.right)
+                if root1.val == root2.val:
+                    return dfs(root1.left, root2.left) and dfs(root1.right, root2.right)
+                return False
             if root1:
                 return False
             if root2:
