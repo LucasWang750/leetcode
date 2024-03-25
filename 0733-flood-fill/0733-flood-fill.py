@@ -17,8 +17,6 @@ class Solution:
                 image[row][col + 1] = color
                 fill(image, row, col + 1, color, old_color)
             
-        if image[sr][sc] == color:
-            return image
-        # image[sr][sc] = color 
-        fill(image, sr, sc, color, image[sr][sc])
+        if image[sr][sc] != color:
+            fill(image, sr, sc, color, image[sr][sc])
         return image
